@@ -169,7 +169,7 @@ class TraceToChromeTraceConverter(val outputFile: File) : BuildOperationConverte
                 ?: return
 
             val text = spans["text"] ?: return
-            if (text.startsWith("Publishing build scan...")) {
+            if (text.startsWith("Publishing build scan...") || text.startsWith("Publishing Build Scan...")) {
                 expectBuildScanLinkProgressEvent = true
             } else if (expectBuildScanLinkProgressEvent) {
                 expectBuildScanLinkProgressEvent = false
