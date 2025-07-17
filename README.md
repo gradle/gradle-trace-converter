@@ -36,7 +36,6 @@ For **command-line invocations** you can pass the `org.gradle.internal.operation
 cd /path/to/project
 
 ./gradlew -Dorg.gradle.internal.operations.trace.tree=false \
-    -Dorg.gradle.internal.operations.trace.tree=false \
     -Dorg.gradle.internal.operations.trace=/path/to/project/trace
 
 # Writes the trace to '/path/to/project/trace-log.txt'
