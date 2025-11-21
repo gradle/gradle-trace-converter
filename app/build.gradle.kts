@@ -28,7 +28,12 @@ tasks.register<Sync>("install") {
     val installDir = providers.gradleProperty(installDirName)
         .orElse(providers.systemProperty(installDirName))
         .orElse("$rootDir/distribution")
+        .map { file(it) }
 
     from(installDistTask.map { it.destinationDir })
     into(installDir)
+
+    doLast {
+        println("Installed gradle-trace-converter to '${installDir.get()}'")
+    }
 }
