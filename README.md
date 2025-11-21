@@ -15,14 +15,14 @@ Command-line tool for analysis and conversion of Build Operation traces of Gradl
 4. Add alias to a shell startup script (e.g. `.zshrc`, `.bashrc` etc.) to path of the distribution, or add the
    distribution path to `$PATH`
 
-Example of an alias for macOS:
+You can choose a different installation location by providing the `gtc.install.dir` property.
+E.g. `./gradlew install -Pgtc.install.dir=/usr/local/bin`.
+
+Example of an alias for Bash:
 
 ```sh
 alias gtc="/Users/user/workspace/gradle-to-trace-converter/distribution/bin/gtc"
 ```
-
-Note: You can also modify the distribution installation directory with `gtc.install.dir` Gradle property or System
-property.
 
 ## Capturing a trace
 
