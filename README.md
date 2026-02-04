@@ -18,8 +18,10 @@ Command-line tool for analysis and conversion of Build Operation traces of Gradl
 The `setup-gtc.sh` script will:
 - Build and install the distribution to `gradle-to-trace-converter/distribution`
 - Automatically detect your shell (bash, zsh, ksh, or fish)
-- Add the `gtc` alias to your shell's startup file (`.bashrc`, `.zshrc`, etc.)
-- Prompt you to source the startup file to activate the alias
+- Add two convenient aliases to your shell's startup file (`.bashrc`, `.zshrc`, etc.):
+  - `gtc` - runs the trace converter
+  - `cct` - runs the collect-trace.sh script (CollectCleanTrace)
+- Prompt you to source the startup file to activate the aliases
 
 After running the script, activate the alias in your current session with:
 ```sh
@@ -28,13 +30,13 @@ source ~/.bashrc  # or ~/.zshrc, ~/.kshrc, etc. depending on your shell
 
 #### Custom installation directory
 
-You can optionally specify a different installation directory:
+You can optionally specify a different installation directory for the `gtc` binary:
 
 ```sh
 ./setup-gtc.sh . /usr/local/bin
 ```
 
-This will install the `gtc` binary to `/usr/local/bin` instead of the default `distribution` folder.
+This will install the `gtc` binary to `/usr/local/bin` instead of the default `distribution` folder. The `cct` alias will still point to the `collect-trace.sh` script in the project directory.
 
 ### Manual setup
 
