@@ -83,12 +83,13 @@ fi
 COLLECT_TRACE_PATH="$PROJECT_ABS_PATH/collect-trace.sh"
 
 # Create the alias commands based on shell
+# Use printf %q to properly escape paths with special characters
 if [ "$CURRENT_SHELL" = "fish" ]; then
-  GTC_ALIAS="alias gtc '$FINAL_DIST_PATH'"
-  CCT_ALIAS="alias cct '$COLLECT_TRACE_PATH'"
+  GTC_ALIAS="alias gtc '$(printf %q "$FINAL_DIST_PATH")'"
+  CCT_ALIAS="alias cct '$(printf %q "$COLLECT_TRACE_PATH")'"
 else
-  GTC_ALIAS="alias gtc=\"$FINAL_DIST_PATH\""
-  CCT_ALIAS="alias cct=\"$COLLECT_TRACE_PATH\""
+  GTC_ALIAS="alias gtc=\"$(printf %q "$FINAL_DIST_PATH")\""
+  CCT_ALIAS="alias cct=\"$(printf %q "$COLLECT_TRACE_PATH")\""
 fi
 
 # Check if aliases already exist
