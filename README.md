@@ -1,5 +1,8 @@
 # Gradle Build Operation Trace Converter
 
+> [!WARNING]
+> This repository has moved to https://github.com/gradle/gradle-profiler/tree/master/subprojects/gradle-trace-converter-app
+
 Command-line tool for analysis and conversion of Build Operation traces of Gradle Build Tool into other formats:
 
 * **Chrome trace** ([Perfetto](https://ui.perfetto.dev/) trace) in a Protobuf format
