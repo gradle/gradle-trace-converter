@@ -12,17 +12,50 @@ Command-line tool for analysis and conversion of Build Operation traces of Gradl
 
 ## How to install
 
+### Quick setup (recommended)
+
 1. `git clone https://github.com/gradle/gradle-to-trace-converter`
 2. `cd gradle-to-trace-converter`
-3. `./gradlew install`: this will install a distribution to `gradle-to-trace-converter/distribution`
-4. Add alias to a shell startup script (e.g. `.zshrc`, `.bashrc` etc.) to path of the distribution, or add the
-   distribution path to `$PATH`
+3. `./setup-gtc.sh`
 
-You can choose a different installation location by providing the `gtc.install.dir` property.
-E.g. `./gradlew install -Pgtc.install.dir=/usr/local/bin`.
+The `setup-gtc.sh` script will:
+- Build and install the distribution to `gradle-to-trace-converter/distribution`
+- Automatically detect your shell (bash, zsh, ksh, or fish)
+- Add two convenient aliases to your shell's startup file (`.bashrc`, `.zshrc`, etc.):
+  - `gtc` - runs the trace converter
+  - `cct` - runs the collect-trace.sh script (CollectCleanTrace)
+- Prompt you to source the startup file to activate the aliases
 
-Example of an alias for Bash:
+After running the script, activate the alias in your current session with:
+```sh
+source ~/.bashrc  # or ~/.zshrc, ~/.kshrc, etc. depending on your shell
+```
 
+#### Custom installation directory
+
+You can optionally specify a different installation directory for the `gtc` binary:
+
+```sh
+./setup-gtc.sh . /usr/local/bin
+```
+
+This will install the `gtc` binary to `/usr/local/bin` instead of the default `distribution` folder. The `cct` alias will still point to the `collect-trace.sh` script in the project directory.
+
+### Manual setup
+
+If you prefer to set up manually or need a custom installation location:
+
+1. `git clone https://github.com/gradle/gradle-to-trace-converter`
+2. `cd gradle-to-trace-converter`
+3. `./gradlew install` - installs distribution to `gradle-to-trace-converter/distribution`
+4. Add an alias to your shell startup script (e.g. `.zshrc`, `.bashrc`) or add the distribution path to `$PATH`
+
+To use a different installation location:
+```sh
+./gradlew install -Pgtc.install.dir=/usr/local/bin
+```
+
+Example alias for Bash:
 ```sh
 alias gtc="/Users/user/workspace/gradle-to-trace-converter/distribution/bin/gtc"
 ```
